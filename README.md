@@ -13,5 +13,4 @@
 * #### V1.0
   简单绘图功能，左右键绘图，选色，橡皮檫功能。
 
-  ![](https://github.com/xxpcb/DrawingBoard-ImageProcessing/tree/master/result/v1_0.png)
-
+  ![](https://github.com/xxpcb/DrawingBoard-ImageProcessing/tree/master/result/v1-0.png)
