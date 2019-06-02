@@ -3,6 +3,7 @@
 * Function: 简易画图板
 * Created: 2019-05-31
 * Author: xxpcb(https://github.com/xxpcb)
+* Modify: 2019-06-02 (v1.1) 完善底部的交互式状态栏
 ==========================================================*/
 
 // For compilers that support precompilation, includes "wx/wx.h".  
@@ -30,8 +31,8 @@ public:
 	wxImage imwx;
 	picFrame();// : MyFrame1(NULL, wxID_ANY) {};
 private:
-	void OnPenClick(wxCommandEvent& event) { flag_operate = 1; };
-	void OnEraserClick(wxCommandEvent& event) { flag_operate = 2; };
+	void OnPenClick(wxCommandEvent& event) { SetStatusText("mode: pen", 1); flag_operate = 1; };
+	void OnEraserClick(wxCommandEvent& event) { SetStatusText("mode: eraser", 1); flag_operate = 2; };
 
 	void OnColorClick(wxCommandEvent& event);
 	void On_C1click(wxMouseEvent& event);
@@ -48,12 +49,28 @@ private:
 	void OnMotion(wxMouseEvent& event);
 	void OnRightDown(wxMouseEvent& event);
 	void OnRightUp(wxMouseEvent& event);
+
+	void OnMotion_Pen(wxMouseEvent& event) { SetStatusText("pen",0); };
+	void OnMotion_Eraser(wxMouseEvent& event) { SetStatusText("eraser", 0); };
+	void OnMotion_Color(wxMouseEvent& event) { SetStatusText("use custom colors", 0); };
+	void OnMotion_C1(wxMouseEvent& event) { SetStatusText("color 1", 0); };
+	void OnMotion_C2(wxMouseEvent& event) { SetStatusText("color 2", 0); };
+	void OnMotion_rB(wxMouseEvent& event) { SetStatusText("select to change color", 0); };
+	void OnMotion_Cplan(wxMouseEvent& event) { SetStatusText("use this color", 0); };
+
+
+	void OnMouseMove(wxMouseEvent& event);//Frame上的鼠标移动
+	wxDECLARE_EVENT_TABLE();
 protected:
 	bool isLDown, isRDown;     //记录鼠标是否处于按下状态
 	wxPoint penPos;  //鼠标位置
 	wxPen pen;
-	int flag_operate = 1;//1:画笔 2:橡皮
+	int flag_operate = 1;//1:画笔 2:橡皮 3:颜色
 };
+BEGIN_EVENT_TABLE(picFrame, MyFrame1)
+EVT_MOTION(picFrame::OnMouseMove)
+END_EVENT_TABLE()
+
 picFrame::picFrame() : MyFrame1(NULL, wxID_ANY) 
 {
 	SetIcon(wxIcon(icon_xpm));
@@ -62,8 +79,10 @@ picFrame::picFrame() : MyFrame1(NULL, wxID_ANY)
 	isLDown = false;
 	isRDown = false;
 	pen = wxPen(wxColor(0, 0, 0), 2, wxSOLID);
-}
 
+	SetStatusText("mode: pen", 1);
+	SetStatusText("※",2);
+}
 
 wxIMPLEMENT_APP(calcApp);//开始执行
 
@@ -77,6 +96,8 @@ bool calcApp::OnInit()
 
 void picFrame::OnColorClick(wxCommandEvent& event)
 {
+	SetStatusText("mode: select color", 1);
+	flag_operate = 3;
 	wxStaticBitmap * m_bitmap_color = m_radioBtn_color1->GetValue()? m_bitmap_color1: m_bitmap_color2;
 	wxColourData colourData;
 	wxColour colour = m_bitmap_color->GetBackgroundColour();
@@ -154,8 +175,11 @@ void picFrame::OnLeftUp(wxMouseEvent& event)
 void picFrame::OnMotion(wxMouseEvent& event)
 {
 	wxPoint mPos = event.GetPosition();
+	wxString inf;
+	inf.Printf(_T("※ %d,%d pixel"), mPos.x, mPos.y);
+	SetStatusText(inf,2);
 	wxClientDC dc(m_panel1);
-	if (isLDown && event.Dragging()) 
+	if (isLDown && event.Dragging() && flag_operate != 3)
 	{
 		if(flag_operate==1)//画笔
 			pen.SetColour(m_bitmap_color1->GetBackgroundColour());
@@ -186,4 +210,16 @@ void picFrame::OnRightDown(wxMouseEvent& event)
 void picFrame::OnRightUp(wxMouseEvent& event)
 {
 	isRDown = false;
+}
+
+void picFrame::OnMouseMove(wxMouseEvent& event)
+{
+	SetStatusText("", 0);
+	switch (flag_operate)
+	{
+	case 1:SetStatusText("mode: pen", 1); break;
+	case 2:SetStatusText("mode: eraser", 1); break;
+	case 3:SetStatusText("mode: select color", 1); break;
+	}
+	SetStatusText("※", 2);
 }

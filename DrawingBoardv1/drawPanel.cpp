@@ -116,22 +116,37 @@ MyFrame1::MyFrame1(wxWindow* parent, wxWindowID id, const wxString& title, const
 
 	this->SetSizer(bSizer1);
 	this->Layout();
-	m_statusBar1 = this->CreateStatusBar(1, wxST_SIZEGRIP, wxID_ANY);
+	m_statusBar1 = this->CreateStatusBar(3, wxST_SIZEGRIP, wxID_ANY);
 
 	this->Centre(wxBOTH);
 
 	// Connect Events
 	m_bpButton1->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MyFrame1::OnPenClick), NULL, this);
+	m_bpButton1->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Pen), NULL, this);
 	m_bpButton2->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MyFrame1::OnEraserClick), NULL, this);
+	m_bpButton2->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Eraser), NULL, this);
+	m_bitmap_color1->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_C1), NULL, this);
+	m_bitmap_color2->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_C2), NULL, this);
+	m_radioBtn_color1->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_rB), NULL, this);
+	m_radioBtn_color2->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_rB), NULL, this);
 	m_bitmap_c1->Connect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C1click), NULL, this);
+	m_bitmap_c1->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bitmap_c2->Connect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C2click), NULL, this);
+	m_bitmap_c2->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bitmap_c3->Connect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C3click), NULL, this);
+	m_bitmap_c3->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bitmap_c4->Connect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C4click), NULL, this);
+	m_bitmap_c4->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bitmap_c5->Connect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C5click), NULL, this);
+	m_bitmap_c5->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bitmap_c6->Connect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C6click), NULL, this);
+	m_bitmap_c6->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bitmap_c7->Connect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C7click), NULL, this);
+	m_bitmap_c7->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bitmap_c8->Connect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C8click), NULL, this);
+	m_bitmap_c8->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bpButton4->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MyFrame1::OnColorClick), NULL, this);
+	m_bpButton4->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Color), NULL, this);
 	m_panel1->Connect(wxEVT_LEFT_DOWN, wxMouseEventHandler(MyFrame1::OnLeftDown), NULL, this);
 	m_panel1->Connect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::OnLeftUp), NULL, this);
 	m_panel1->Connect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion), NULL, this);
@@ -143,16 +158,31 @@ MyFrame1::~MyFrame1()
 {
 	// Disconnect Events
 	m_bpButton1->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MyFrame1::OnPenClick), NULL, this);
+	m_bpButton1->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Pen), NULL, this);
 	m_bpButton2->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MyFrame1::OnEraserClick), NULL, this);
+	m_bpButton2->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Eraser), NULL, this);
+	m_bitmap_color1->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_C1), NULL, this);
+	m_bitmap_color2->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_C2), NULL, this);
+	m_radioBtn_color1->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_rB), NULL, this);
+	m_radioBtn_color2->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_rB), NULL, this);
 	m_bitmap_c1->Disconnect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C1click), NULL, this);
+	m_bitmap_c1->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bitmap_c2->Disconnect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C2click), NULL, this);
+	m_bitmap_c2->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bitmap_c3->Disconnect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C3click), NULL, this);
+	m_bitmap_c3->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bitmap_c4->Disconnect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C4click), NULL, this);
+	m_bitmap_c4->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bitmap_c5->Disconnect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C5click), NULL, this);
+	m_bitmap_c5->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bitmap_c6->Disconnect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C6click), NULL, this);
+	m_bitmap_c6->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bitmap_c7->Disconnect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C7click), NULL, this);
+	m_bitmap_c7->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bitmap_c8->Disconnect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::On_C8click), NULL, this);
+	m_bitmap_c8->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Cplan), NULL, this);
 	m_bpButton4->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MyFrame1::OnColorClick), NULL, this);
+	m_bpButton4->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion_Color), NULL, this);
 	m_panel1->Disconnect(wxEVT_LEFT_DOWN, wxMouseEventHandler(MyFrame1::OnLeftDown), NULL, this);
 	m_panel1->Disconnect(wxEVT_LEFT_UP, wxMouseEventHandler(MyFrame1::OnLeftUp), NULL, this);
 	m_panel1->Disconnect(wxEVT_MOTION, wxMouseEventHandler(MyFrame1::OnMotion), NULL, this);

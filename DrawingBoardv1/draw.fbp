@@ -47,7 +47,7 @@
             <property name="size">725,545</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass"></property>
-            <property name="title">简易画板v1.0</property>
+            <property name="title">简易画板v1.1</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
@@ -183,7 +183,7 @@
                                 <event name="OnMiddleDClick"></event>
                                 <event name="OnMiddleDown"></event>
                                 <event name="OnMiddleUp"></event>
-                                <event name="OnMotion"></event>
+                                <event name="OnMotion">OnMotion_Pen</event>
                                 <event name="OnMouseEvents"></event>
                                 <event name="OnMouseWheel"></event>
                                 <event name="OnPaint"></event>
@@ -276,7 +276,7 @@
                                 <event name="OnMiddleDClick"></event>
                                 <event name="OnMiddleDown"></event>
                                 <event name="OnMiddleUp"></event>
-                                <event name="OnMotion"></event>
+                                <event name="OnMotion">OnMotion_Eraser</event>
                                 <event name="OnMouseEvents"></event>
                                 <event name="OnMouseWheel"></event>
                                 <event name="OnPaint"></event>
@@ -454,7 +454,7 @@
                                         <event name="OnMiddleDClick"></event>
                                         <event name="OnMiddleDown"></event>
                                         <event name="OnMiddleUp"></event>
-                                        <event name="OnMotion"></event>
+                                        <event name="OnMotion">OnMotion_C1</event>
                                         <event name="OnMouseEvents"></event>
                                         <event name="OnMouseWheel"></event>
                                         <event name="OnPaint"></event>
@@ -535,7 +535,7 @@
                                         <event name="OnMiddleDClick"></event>
                                         <event name="OnMiddleDown"></event>
                                         <event name="OnMiddleUp"></event>
-                                        <event name="OnMotion"></event>
+                                        <event name="OnMotion">OnMotion_C2</event>
                                         <event name="OnMouseEvents"></event>
                                         <event name="OnMouseWheel"></event>
                                         <event name="OnPaint"></event>
@@ -622,7 +622,7 @@
                                         <event name="OnMiddleDClick"></event>
                                         <event name="OnMiddleDown"></event>
                                         <event name="OnMiddleUp"></event>
-                                        <event name="OnMotion"></event>
+                                        <event name="OnMotion">OnMotion_rB</event>
                                         <event name="OnMouseEvents"></event>
                                         <event name="OnMouseWheel"></event>
                                         <event name="OnPaint"></event>
@@ -710,7 +710,7 @@
                                         <event name="OnMiddleDClick"></event>
                                         <event name="OnMiddleDown"></event>
                                         <event name="OnMiddleUp"></event>
-                                        <event name="OnMotion"></event>
+                                        <event name="OnMotion">OnMotion_rB</event>
                                         <event name="OnMouseEvents"></event>
                                         <event name="OnMouseWheel"></event>
                                         <event name="OnPaint"></event>
@@ -887,7 +887,7 @@
                                         <event name="OnMiddleDClick"></event>
                                         <event name="OnMiddleDown"></event>
                                         <event name="OnMiddleUp"></event>
-                                        <event name="OnMotion"></event>
+                                        <event name="OnMotion">OnMotion_Cplan</event>
                                         <event name="OnMouseEvents"></event>
                                         <event name="OnMouseWheel"></event>
                                         <event name="OnPaint"></event>
@@ -968,7 +968,7 @@
                                         <event name="OnMiddleDClick"></event>
                                         <event name="OnMiddleDown"></event>
                                         <event name="OnMiddleUp"></event>
-                                        <event name="OnMotion"></event>
+                                        <event name="OnMotion">OnMotion_Cplan</event>
                                         <event name="OnMouseEvents"></event>
                                         <event name="OnMouseWheel"></event>
                                         <event name="OnPaint"></event>
@@ -1049,7 +1049,7 @@
                                         <event name="OnMiddleDClick"></event>
                                         <event name="OnMiddleDown"></event>
                                         <event name="OnMiddleUp"></event>
-                                        <event name="OnMotion"></event>
+                                        <event name="OnMotion">OnMotion_Cplan</event>
                                         <event name="OnMouseEvents"></event>
                                         <event name="OnMouseWheel"></event>
                                         <event name="OnPaint"></event>
@@ -1130,7 +1130,7 @@
                                         <event name="OnMiddleDClick"></event>
                                         <event name="OnMiddleDown"></event>
                                         <event name="OnMiddleUp"></event>
-                                        <event name="OnMotion"></event>
+                                        <event name="OnMotion">OnMotion_Cplan</event>
                                         <event name="OnMouseEvents"></event>
                                         <event name="OnMouseWheel"></event>
                                         <event name="OnPaint"></event>
@@ -1211,7 +1211,7 @@
                                         <event name="OnMiddleDClick"></event>
                                         <event name="OnMiddleDown"></event>
                                         <event name="OnMiddleUp"></event>
-                                        <event name="OnMotion"></event>
+                                        <event name="OnMotion">OnMotion_Cplan</event>
                                         <event name="OnMouseEvents"></event>
                                         <event name="OnMouseWheel"></event>
                                         <event name="OnPaint"></event>
@@ -1292,7 +1292,7 @@
                                         <event name="OnMiddleDClick"></event>
                                         <event name="OnMiddleDown"></event>
                                         <event name="OnMiddleUp"></event>
-                                        <event name="OnMotion"></event>
+                                        <event name="OnMotion">OnMotion_Cplan</event>
                                         <event name="OnMouseEvents"></event>
                                         <event name="OnMouseWheel"></event>
                                         <event name="OnPaint"></event>
@@ -1373,7 +1373,7 @@
                                         <event name="OnMiddleDClick"></event>
                                         <event name="OnMiddleDown"></event>
                                         <event name="OnMiddleUp"></event>
-                                        <event name="OnMotion"></event>
+                                        <event name="OnMotion">OnMotion_Cplan</event>
                                         <event name="OnMouseEvents"></event>
                                         <event name="OnMouseWheel"></event>
                                         <event name="OnPaint"></event>
@@ -1454,7 +1454,7 @@
                                         <event name="OnMiddleDClick"></event>
                                         <event name="OnMiddleDown"></event>
                                         <event name="OnMiddleUp"></event>
-                                        <event name="OnMotion"></event>
+                                        <event name="OnMotion">OnMotion_Cplan</event>
                                         <event name="OnMouseEvents"></event>
                                         <event name="OnMouseWheel"></event>
                                         <event name="OnPaint"></event>
@@ -1549,7 +1549,7 @@
                                 <event name="OnMiddleDClick"></event>
                                 <event name="OnMiddleDown"></event>
                                 <event name="OnMiddleUp"></event>
-                                <event name="OnMotion"></event>
+                                <event name="OnMotion">OnMotion_Color</event>
                                 <event name="OnMouseEvents"></event>
                                 <event name="OnMouseWheel"></event>
                                 <event name="OnPaint"></event>
@@ -1650,7 +1650,7 @@
                 <property name="context_menu">1</property>
                 <property name="enabled">1</property>
                 <property name="fg"></property>
-                <property name="fields">1</property>
+                <property name="fields">3</property>
                 <property name="font"></property>
                 <property name="hidden">0</property>
                 <property name="id">wxID_ANY</property>

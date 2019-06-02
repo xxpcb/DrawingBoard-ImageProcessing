@@ -61,8 +61,14 @@ protected:
 
 	// Virtual event handlers, overide them in your derived class
 	virtual void OnPenClick(wxCommandEvent& event) { event.Skip(); }
+	virtual void OnMotion_Pen(wxMouseEvent& event) { event.Skip(); }
 	virtual void OnEraserClick(wxCommandEvent& event) { event.Skip(); }
+	virtual void OnMotion_Eraser(wxMouseEvent& event) { event.Skip(); }
+	virtual void OnMotion_C1(wxMouseEvent& event) { event.Skip(); }
+	virtual void OnMotion_C2(wxMouseEvent& event) { event.Skip(); }
+	virtual void OnMotion_rB(wxMouseEvent& event) { event.Skip(); }
 	virtual void On_C1click(wxMouseEvent& event) { event.Skip(); }
+	virtual void OnMotion_Cplan(wxMouseEvent& event) { event.Skip(); }
 	virtual void On_C2click(wxMouseEvent& event) { event.Skip(); }
 	virtual void On_C3click(wxMouseEvent& event) { event.Skip(); }
 	virtual void On_C4click(wxMouseEvent& event) { event.Skip(); }
@@ -71,6 +77,7 @@ protected:
 	virtual void On_C7click(wxMouseEvent& event) { event.Skip(); }
 	virtual void On_C8click(wxMouseEvent& event) { event.Skip(); }
 	virtual void OnColorClick(wxCommandEvent& event) { event.Skip(); }
+	virtual void OnMotion_Color(wxMouseEvent& event) { event.Skip(); }
 	virtual void OnLeftDown(wxMouseEvent& event) { event.Skip(); }
 	virtual void OnLeftUp(wxMouseEvent& event) { event.Skip(); }
 	virtual void OnMotion(wxMouseEvent& event) { event.Skip(); }
@@ -80,7 +87,7 @@ protected:
 
 public:
 
-	MyFrame1(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("¼òÒ×»­°åv1.0"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(725, 545), long style = wxDEFAULT_FRAME_STYLE | wxTAB_TRAVERSAL);
+	MyFrame1(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("¼òÒ×»­°åv1.1"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(725, 545), long style = wxDEFAULT_FRAME_STYLE | wxTAB_TRAVERSAL);
 
 	~MyFrame1();
 

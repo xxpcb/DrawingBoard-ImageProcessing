@@ -10,7 +10,7 @@
 
 ## 测试效果
 
-* #### V1.0
+* #### V1.1
   简单绘图功能，左右键绘图，选色，橡皮檫功能。
 
-  ![](https://github.com/xxpcb/DrawingBoard-ImageProcessing/blob/master/result/v1-0.png)
+  ![](https://github.com/xxpcb/DrawingBoard-ImageProcessing/blob/master/result/v1-1.png)
