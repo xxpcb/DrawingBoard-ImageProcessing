@@ -1,0 +1,7 @@
+logo     ICON      "logo.ico"
+//#include "wx/msw/wx.rc"
+
+pen      BITMAP    "pen.bmp"
+eraser   BITMAP    "eraser.bmp"
+color    BITMAP    "color.bmp"
+

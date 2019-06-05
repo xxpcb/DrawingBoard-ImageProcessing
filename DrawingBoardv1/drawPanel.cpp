@@ -19,10 +19,10 @@ MyFrame1::MyFrame1(wxWindow* parent, wxWindowID id, const wxString& title, const
 	wxBoxSizer* bSizer2;
 	bSizer2 = new wxBoxSizer(wxVERTICAL);
 
-	m_bpButton1 = new wxBitmapButton(this, wxID_ANY, wxBitmap(wxT("pen.bmp"), wxBITMAP_TYPE_ANY), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW);
+	m_bpButton1 = new wxBitmapButton(this, wxID_ANY, wxBitmap(wxT("pen"), wxBITMAP_TYPE_RESOURCE), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW);
 	bSizer2->Add(m_bpButton1, 0, wxALL, 5);
 
-	m_bpButton2 = new wxBitmapButton(this, wxID_ANY, wxBitmap(wxT("eraser.bmp"), wxBITMAP_TYPE_ANY), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW);
+	m_bpButton2 = new wxBitmapButton(this, wxID_ANY, wxBitmap(wxT("eraser"), wxBITMAP_TYPE_RESOURCE), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW);
 	bSizer2->Add(m_bpButton2, 0, wxALL, 5);
 
 	m_staticline1 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL);
@@ -102,7 +102,7 @@ MyFrame1::MyFrame1(wxWindow* parent, wxWindowID id, const wxString& title, const
 
 	bSizer2->Add(gSizer1, 0, 0, 5);
 
-	m_bpButton4 = new wxBitmapButton(this, wxID_ANY, wxBitmap(wxT("color.bmp"), wxBITMAP_TYPE_ANY), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW);
+	m_bpButton4 = new wxBitmapButton(this, wxID_ANY, wxBitmap(wxT("color"), wxBITMAP_TYPE_RESOURCE), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW);
 	bSizer2->Add(m_bpButton4, 0, wxALL, 5);
 
 
